@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import { MatIconRegistry } from "@angular/material";
-import { DomSanitizer } from "@angular/platform-browser";
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Router } from '@angular/router'
+import { Subscription } from 'rxjs/Subscription'
+import { MatIconRegistry } from '@angular/material'
+import { DomSanitizer } from '@angular/platform-browser'
 
 
-import { AuthService } from './auth/auth.service';
-import * as schema from './schema/equipment.json';
+import { AuthService } from './auth/auth.service'
+import * as schema from './schema/equipment.json'
 
 @Component({
   selector: 'app-root',
@@ -15,8 +15,8 @@ import * as schema from './schema/equipment.json';
 })
 export class AppComponent implements OnInit {
 
-  private userSubscription: Subscription;
-  public user: any;
+  private userSubscription: Subscription
+  public user: any
 
   constructor(
     private authService: AuthService,
@@ -31,27 +31,27 @@ export class AppComponent implements OnInit {
 
     // init this.user on startup
     this.authService.me().subscribe(data => {
-      this.user = data.user;
-    });
+      this.user = data.user
+    })
 
     // update this.user after login/register/logout
     this.userSubscription = this.authService.$userSource.subscribe((user) => {
-      this.user = user;
-    });
+      this.user = user
+    })
   }
 
   logout(): void {
-    this.authService.signOut();
-    this.navigate('');
+    this.authService.signOut()
+    this.navigate('')
   }
 
   navigate(link): void {
-    this.router.navigate([link]);
+    this.router.navigate([link])
   }
 
-  ngOnDestroy() { 
+  ngOnDestroy() {
     if (this.userSubscription) {
-      this.userSubscription.unsubscribe();
+      this.userSubscription.unsubscribe()
     }
   }
 
@@ -91,7 +91,7 @@ export class AppComponent implements OnInit {
       'water-transportation',
     ].forEach((icon) => {
       this.matIconRegistry.addSvgIcon(icon, this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/icons/${icon}.svg`))
-    });
+    })
   }
 
 }

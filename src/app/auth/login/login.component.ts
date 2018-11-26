@@ -1,28 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 
-import {AuthService} from '../auth.service';
+import {AuthService} from '../auth.service'
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['../auth.component.scss']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['../auth.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+	constructor(private authService: AuthService, private router: Router) { }
 
-  email: string;
-  password: string;
+	email: string
+	password: string
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
-  login(): void {
-    this.authService.login(this.email, this.password)
-    .subscribe(data => {
-      this.router.navigate(['']);
-    })
-  }
+	login(): void {
+		this.authService.login(this.email, this.password)
+			.subscribe(data => {
+				this.router.navigate([''])
+			})
+	}
 
 }

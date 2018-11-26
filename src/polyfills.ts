@@ -43,7 +43,7 @@
 
 /** Evergreen browsers require these. **/
 // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
-import 'core-js/es7/reflect';
+import 'core-js/es7/reflect'
 
 
 /**
@@ -70,7 +70,7 @@ import 'core-js/es7/reflect';
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
+import 'zone.js/dist/zone'  // Included with Angular CLI.
 
 
 
@@ -78,8 +78,8 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  * APPLICATION IMPORTS
  */
 
-(window as any).global = window;
+(window as any).global = window
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from 'events'
 
-(window as any).globalEvents = new EventEmitter();
+(window as any).globalEvents = new EventEmitter()
